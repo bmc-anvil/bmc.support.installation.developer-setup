@@ -7,12 +7,12 @@ The following sections explain or link to each folder concern, in alphabetical o
 
 ## Folders
 
-### code_style
+### Code_style
 
 IntelliJ code style shared by every project.
 
-### prometheus-grafana
+### Prometheus-grafana
 
-Docker compose ready yml configurations to have a local setup of prometheus and grafana.<br>
+Docker-compose ready yml configurations to have a local setup of prometheus and grafana.<br>
 Pruned from [awesome-compose](https://github.com/docker/awesome-compose), and slightly modified for the app's purposes.
 
