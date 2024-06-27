@@ -94,7 +94,7 @@ sudo pacman -S base-devel git jdk-openjdk openjdk-doc openjdk-src maven docker d
 - nvm (node version manager)
     - docs: https://github.com/nvm-sh/nvm
     - add the following to your `.zshrc` file, save the file then close all terminals
-  ```text
+  ```shell
   source /usr/share/nvm/init-nvm.sh 
   ```
     - in a new terminal, install `Node.js`. Always use the latest
@@ -117,26 +117,26 @@ sudo pacman -S base-devel git jdk-openjdk openjdk-doc openjdk-src maven docker d
 
 ### Tweaks
 
-### useful shell alias:
+### useful shell aliases:
 
 These are some useful alias of my personal preferences. Add more here if you fancy explaining what they do / how they help.
 
 In the `.zshrc` file add the following:
 
-```text
+```shell
 alias pac-installed='pacman -Qq | fzf --preview '\''pacman -Qil {}'\'' --layout=reverse --bind '\''enter:execute(pacman -Qil {} | less)'\'''
 alias pac-list='pacman -Slq | fzf --preview '\''pacman -Si {}'\'' --layout=reverse'
 alias ll='ls -lah'
 ```
 
-- The command `pac-installed` will show a list of all packages installed
-- The command `pac-list` will show a list of all packages in pacman's remote repositories
-- The command `ll` will list a directory with extended info displaying sizes in human-readable format
+- The alias `pac-installed` will show a list of all packages installed
+- The alias `pac-list` will show a list of all packages in pacman's remote repositories
+- The alias `ll` will list a directory with extended info displaying sizes in human-readable format
 
 Close all your terminals or execute the below command on the ones open to apply the changes:
 
 ```zsh
- source .zshrc
+ source ~/.zshrc
   ```
 
 ####              
