@@ -9,7 +9,11 @@ The following sections explain or link to each folder concern, in alphabetical o
 
 ### Code_style
 
-IntelliJ code style shared by every project.
+[IntelliJ IDEA](https://www.jetbrains.com/idea/) code style shared by every project.
+
+### Linux
+
+GNU-Linux OS configurations to set up local machines with required tools, apps and tweaks.
 
 ### Prometheus-grafana
 
