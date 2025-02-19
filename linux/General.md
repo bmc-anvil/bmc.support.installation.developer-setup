@@ -4,15 +4,10 @@
 > Do not switch to unstable mirrors on any distro as they may make the OS less reliable and more prone to problems.<br>
 > By the same token, do not run your system on experimental kernels.
 
-### Tools
+### Tools and Tweaks
 
-Given the different package managers, each OS file will have a Tools Section with the commands on how to install each recommended tool.
-
-- [ArchLinux Family](ArchFamily.md)
-
-### Tweaks
-
-Given the different defaults and configurations bundled by each distro,
-each OS file will have a Tweaks Section with the relevant tweaks for each OS.
+Given the different package managers, each OS file will have a Tools Section with the commands on how to install each recommended tool and a
+Tweaks section for useful config.
 
 - [ArchLinux Family](ArchFamily.md)
+- [OpenSuSE Family](OpenSuSEFamily.md)
