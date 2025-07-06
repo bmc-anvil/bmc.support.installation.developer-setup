@@ -23,8 +23,13 @@ friendly-er settings.
 
 ### Tools:
 
+install the missing library for intelliJ not to fail
 
+```zsh
+sudo zypper in libgthread-2_0-0
+```
 
+### Java JDKs
 
 #### Dev:
 
@@ -117,6 +122,7 @@ Close all terminals or logout / login for changes to apply.
 Once you open a terminal again, `zsh` will be your shell
 
 Let's add some bling:
+
 - [OhMyZsh](https://ohmyz.sh/)
 - [Autosuggestions](https://github.com/zsh-users/zsh-autosuggestions)
 - [Syntax highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
@@ -133,9 +139,11 @@ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$
 ```
 
 The last step will run the **p10k** configurer, it nothing happens, run it manually like below
+
 ```zsh
 p10k configure
 ```
+
 Let's use **powerlevel10k** as **OhMyZsh** THEME
 
 ```zsh
@@ -145,11 +153,13 @@ vim ~/.zshrc
 ```
 
 If you have problems with fonts, like not seeing a few icons during setup, follow these instructions to add patched fonts:
+
 - [PowerLevel fonts](https://github.com/romkatv/powerlevel10k?tab=readme-ov-file#fonts)
+
+add the fonts to the fonts folder then add them to the system fonts
 
 After zsh and its companions are installed, set the font on a konsole profile so all looks as intended. In my case, it's **MesloGS NF**:
 ![Konsole Font Settings](resources/meslo_nerd_fonts_konsole.jpg "Konsole Fonts Settings")
-
 
 ### Tweaks
 
@@ -190,4 +200,4 @@ Close all your terminals or execute the below command on the ones open to apply 
  source ~/.zshrc
   ```
 
-####                          
+####                           
