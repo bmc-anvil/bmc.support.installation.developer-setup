@@ -7,8 +7,10 @@ install by default.
 
 ## WARNING
 
-> What follows heavily modifies your system in a way that may break other software, current installation, or even the entire OS.<br>
+> What follows heavily modifies your system in a way that may break other software, current installation, or even the entire OS.
+>
 > Stop here and do not run any script if you do not know what you are doing.
+>
 > ---
 > This **WILL** change your system.
 
