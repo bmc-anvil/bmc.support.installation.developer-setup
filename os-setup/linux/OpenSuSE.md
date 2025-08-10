@@ -9,7 +9,7 @@ install by default.
 
 > What follows heavily modifies your system in a way that may break other software, current installation, or even the entire OS.
 >
-> Stop here and do not run any script if you do not know what you are doing.
+> Stop here and do not run any script if you do not know what you are doing, and even if you know, this can harm your system.
 >
 > ---
 > This **WILL** change your system.
@@ -112,7 +112,7 @@ Remember this is mostly for myself... a few tools might be lateral to specific p
 - Replace placeholders like <Your Name> and <your-email@example.com> as needed.
 - Some steps require restarting your shell session.
 
-## 0) System update
+## 0. System update
 
 ```shell script
   # refresh repositories
@@ -122,33 +122,33 @@ sudo zypper update -y
 
 ---
 
-## 1) Base Development Tools (install first)
+## 1. Base Development Tools (install first)
 
 Install the base development pattern and essential build/runtime tools.
 
 ```shell
-  # Install the base development pattern
+# Install the base development pattern
 sudo zypper install -t pattern devel_basis
 ```
 
 ```shell
-  # Ensure common build/runtime utilities are present
+# Ensure common build/runtime utilities are present
 sudo zypper install gcc gcc-c++ make pkgconf pkgconf-pkg-config curl wget ca-certificates tar unzip xz openssl
 ```
 
 ---
 
-## 2) zsh and Completions (install second)
+## 2. zsh and Completions (install second)
 
 Install zsh and completions and set it as the default shell.
 
 ```shell script
-  # Install zsh and bash completions
+# Install zsh and bash completions
 sudo zypper install  zsh zsh-completions bash-completion
 ```
 
 ```shell
-  # set zsh as the default shell (log out/in afterwards)
+# set zsh as the default shell (log out/in afterwards)
 chsh -s /usr/bin/zsh
 ```
 
@@ -156,12 +156,12 @@ From this point onward, use zsh for the remaining steps.
 
 ---
 
-## 3) Oh My zsh, Powerlevel10k, and Plugins
+## 3. Oh My zsh, Powerlevel10k, and Plugins
 
 Install and configure Oh My zsh, Powerlevel10k, zsh-syntax-highlighting, and zsh-autosuggestions.
 
 ```shell
-    # Install Oh My zsh without changing shell or auto-running zsh right now
+# Install Oh My zsh without changing shell or auto-running zsh right now
 RUNZSH=no CHSH=no KEEP_ZSHRC=yes sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 # Set ZSH_CUSTOM for convenience
@@ -178,7 +178,7 @@ git clone --depth=1 https://github.com/zsh-users/zsh-autosuggestions.git "$ZSH_C
 Install `MesloLGS Nerd Font` (the font recommended by Powerlevel10k):
 
 ```shell
-    # Install MesloLGS NF to user fonts
+# Install MesloLGS NF to user fonts
 mkdir -p "$HOME/.local/share/fonts"
 cd "$HOME/.local/share/fonts"
 
@@ -197,8 +197,8 @@ fc-list | grep -i "MesloLGS NF" || echo "MesloLGS NF not detected; check downloa
 Recommended `~/.zshrc` configuration:
 
 ```shell
-    # modify ~/.zshrc with the below
-    # most of these option may already be there by oh-my-zsh and powerlevel10k setup 
+# modify ~/.zshrc with the below
+# most of these options may already be there by oh-my-zsh and powerlevel10k setup 
 
 # Oh My zsh
 export ZSH="$HOME/.oh-my-zsh"
@@ -235,7 +235,7 @@ source "$ZSH/oh-my-zsh.sh"
 Apply and configure:
 
 ```shell
-  # Reload zsh to apply
+# Reload zsh to apply
 exec zsh -l
 # If prompted, run the configuration wizard
 p10k configure
@@ -243,10 +243,10 @@ p10k configure
 
 ---
 
-## 4) Git
+## 4. Git
 
 ```shell
-  # Install git
+# Install git
 sudo zypper install git
 
 # Verify
@@ -264,57 +264,69 @@ git config --global branch.autosetuprebase never
 
 ---
 
-## 5) Java JDK Latest
+## 5. Java JDK Latest
 
 Add the Java:Factory repository and install JDK from OpenSuSE packages.
 
 ```shell
 # Detect OpenSuSE variant to add the proper Java:Factory repository
-source /etc/os-release
+# Array of Java versions to install
+java_versions=("24" "25" "26")
 
+# Switch to the Java:Factory repository
 if [[ "$ID" == "OpenSuSE-tumbleweed" ]]; then
-  sudo zypper ar -f https://download.OpenSuSE.org/repositories/Java:/Factory/OpenSuSE_Tumbleweed/ Java_Factory
+  repo_url="https://download.opensuse.org/repositories/Java:/Factory/OpenSuSE_Tumbleweed/"
 else
-  # For Leap, map VERSION_ID to the repository name. Example for Leap 15.5:
-  # OpenSuSE_Leap_15.5 or OpenSuSE_Leap_$VERSION_ID
-  sudo zypper ar -f "https://download.OpenSuSE.org/repositories/Java:/Factory/OpenSuSE_Leap_${VERSION_ID}/" Java_Factory
+  repo_url="https://download.opensuse.org/repositories/Java:/Factory/OpenSuSE_Leap_${VERSION_ID}/"
 fi
 
+# Add the repository
+sudo zypper ar -f "$repo_url" Java_Factory
+
+# Refresh the repository
 sudo zypper refresh
 
-# Install JDK 24 and development headers. Use the latest GA at the moment of installation.
-sudo zypper install java-24-openjdk java-24-openjdk-devel java-24-openjdk-javadoc java-24-openjdk-src
+# Install each Java version
+for version in "${java_versions[@]}"; do
+  sudo zypper install "java-${version}-openjdk" "java-${version}-openjdk-devel" "java-${version}-openjdk-javadoc" "java-${version}-openjdk-src"
+done
 
-# Verify
-java -version
-javac -version
+# Verify installations
+for version in "${java_versions[@]}"; do
+  echo "Verifying Java ${version} installation:"
+  java-${version} -version
+  javac-${version} -version
+done
 ```
 
 Optional environment variables:
 
-```shell
-# Add to ~/.zshrc if you want JAVA_HOME explicitly set, this should not be required and managed by Update-Alternatives
-if [[ -d /usr/lib64/jvm/java-24-openjdk ]]; then
-  export JAVA_HOME="/usr/lib64/jvm/java-24-openjdk"
-elif [[ -d /usr/lib/jvm/java-24-openjdk ]]; then
-  export JAVA_HOME="/usr/lib/jvm/java-24-openjdk"
-fi
-export PATH="$JAVA_HOME/bin:$PATH"
+```zsh
+# Add to ~/.zshrc to have JAVA_HOME and JAVA_BINDIR explicitly set, as changing with update-alternatives fails to set env vars
+# Find the Java binary path
+java_bin=$(which java)
+
+# Resolve the symbolic link to get the actual Java installation directory
+java_bin_directory=$(dirname $(readlink -f $java_bin))
+
+# Set Java env vars
+export JAVA_BINDIR=$java_bin_directory
+export JAVA_HOME=$(dirname $java_bin_directory)
 ```
 
 ---
 
-## 6) jq
+## 6. jq
 
 ```shell
-  # Install jq
+# Install jq
 sudo zypper install jq
 jq --version
 ```
 
 ---
 
-## 7) Node.js via NVM (latest + LTS)
+## 7. Node.js via NVM (latest + LTS)
 
 ```shell
 # Install NVM
@@ -340,7 +352,7 @@ corepack enable
 Persist NVM in your ~/.zshrc:
 
 ```shell
-  # Add to ~/.zshrc
+# Add to ~/.zshrc
 export NVM_DIR="$HOME/.nvm"
 [[ -s "$NVM_DIR/nvm.sh" ]] && . "$NVM_DIR/nvm.sh"
 [[ -s "$NVM_DIR/bash_completion" ]] && . "$NVM_DIR/bash_completion"
@@ -350,20 +362,20 @@ export NVM_DIR="$HOME/.nvm"
 
 ---
 
-## 8) Glib thread library (libgthread-2)
+## 8. Libgthread-2 library (libgthread-2)
 
 ```shell
-  # install missing libgthread-2_0-0 required by intelliJ in openSUSE as of early mid 2025
+# install missing libgthread-2_0-0 required by intelliJ in openSUSE as of early mid 2025
 sudo zypper in libgthread-2_0-0
 
 ```
 
 ---
 
-## 9) Docker and Docker Compose
+## 9. Docker and Docker Compose
 
 ```shell
-  # Install Docker and Compose plugin
+# Install Docker and Compose plugin
 sudo zypper install docker docker-compose
 
 # Enable and start
@@ -393,15 +405,19 @@ docker completion zsh > "${ZSH_CUSTOM:-$HOME/.zsh}/_docker"
 
 ---
 
-## 10) kubectl (Kubernetes CLI)
+## 10. kubectl (Kubernetes CLI)
 
 ```shell
 # Install latest stable kubectl
-curl -LO "https://dl.k8s.io/release/$(curl -Ls https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
-curl -LO "https://dl.k8s.io/$(curl -Ls https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl.sha256"
-echo "$(cat kubectl.sha256)  kubectl" | sha256sum -c -
-chmod +x kubectl
-sudo mv kubectl /usr/local/bin/
+# This overwrites any existing configuration in /etc/zypp/repos.d/kubernetes.repo
+cat <<EOF | sudo tee /etc/zypp/repos.d/kubernetes.repo
+[kubernetes]
+name=Kubernetes
+baseurl=https://pkgs.k8s.io/core:/stable:/v1.33/rpm/
+enabled=1
+gpgcheck=1
+gpgkey=https://pkgs.k8s.io/core:/stable:/v1.33/rpm/repodata/repomd.xml.key
+EOF
 
 # Verify
 kubectl version --client
@@ -418,7 +434,7 @@ kubectl completion zsh > "${ZSH_CUSTOM:-$HOME/.zsh}/_kubectl"
 
 ---
 
-## 11) Minikube (local Kubernetes)
+## 11. Minikube (local Kubernetes)
 
 ```shell
 # Download latest Minikube
@@ -444,7 +460,7 @@ minikube completion zsh > "${ZSH_CUSTOM:-$HOME/.zsh}/_minikube"
 
 ---
 
-## 12) Neovim
+## 12. Neovim
 
 ```shell
 sudo zypper install neovim
@@ -465,7 +481,7 @@ EOF
 
 ---
 
-## 13) Ruby and local gem setup
+## 13. Ruby and local gem setup
 
 ```shell
 # Ruby and headers for native gems
@@ -497,7 +513,7 @@ bundler --version
 
 ---
 
-## 14) Verify everything
+## 14. Verify everything
 
 ```shell
 # Git
@@ -534,7 +550,7 @@ echo "$ZSH_THEME"
 
 ---
 
-## 15) Troubleshooting
+## 15. Troubleshooting
 
 - After adding your user to the docker group, log out and back in, or run `newgrp docker` to apply the new group for the current session.
 - If NVM isn’t available, ensure its init lines are in your ~/.zshrc file and source it or restart the shell.
