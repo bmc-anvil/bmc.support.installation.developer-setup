@@ -23,7 +23,7 @@ If you already have a dev environment set up, you can skip the OS-specific set-u
 
 With a dev environment set up, you can run the bootstrap scripts to clone and locally organize all repos.
 
-## Next Steps
+## What's Next
 
 -
 
