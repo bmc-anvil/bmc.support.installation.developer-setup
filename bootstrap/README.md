@@ -37,7 +37,6 @@ These are the steps to get started, follow them in order:
 1. Do **not** clone anything, the scripts will do that.
 2. Copy the [scripts folder](bmc-anvil-project) into a selected location on your machine.
     1. That folder will be the root for everything else in the project
-    2. Configure the `bmc-anvil-github.env` file your corresponding **GitHub** credentials.
 3. Run the following:
     ```shell
         # make the scripts executable
