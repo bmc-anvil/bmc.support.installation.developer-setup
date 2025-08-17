@@ -48,8 +48,11 @@ These are the steps to get started, follow them in order:
         ./clone_repos.zsh
     ```
 3. The project's structure with all repos should now be cloned.
-4. Delete the scripts and *.env files if you want.
-5. Done.
+4. Update the contents of your `settings.xml` located usually at `~/.m2` folder with the `settings.xml` from the scripts folder.
+    1. If you don't have the ~/.m2 directory or the file, create the directory and/or copy the settings.xml file
+    2. Fill in your user / token for the `<id>github</id>` server
+5. Delete the scripts, *.env files and settings.xml once you are done if you wish.
+6. Done.
 
 ## What's next
 
