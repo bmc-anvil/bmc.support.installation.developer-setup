@@ -23,7 +23,7 @@ Because of maintenance reasons and possible future drifting in technologies, she
 The rationale is that some sort of *nix terminal is present on local machines.
 
 I use one of many Linux distributions, mostly OpenSuSE / Manjaro, which may not match every visitor's setup.<br>
-Windows OSs are not, and will not, be supported in the foreseeable future.
+Windows OSs are not, and will not, be supported in the foreseeable future, this includes WSL.
 
 A constant, though, is my use of `zsh` as shell, and the scripts will reflect that.<br>
 In time `bash` will probably be supported as well or even replacing zsh scripts altogether.
