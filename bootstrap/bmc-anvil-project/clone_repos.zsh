@@ -1,7 +1,7 @@
 #!/usr/bin/env zsh
 
 # Load environment variables from .env file
-env_file_name=bmc-anvil-github.env
+env_file_name=bmc_anvil_github.env
 
 if [[ -f $env_file_name ]]; then
     echo "loading github configuration from [$env_file_name]"
