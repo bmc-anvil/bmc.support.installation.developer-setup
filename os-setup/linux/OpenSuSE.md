@@ -86,6 +86,7 @@ Remember this is mostly for myself... a few tools might be lateral to specific p
 |------------------------------------|-------------------------------------------------------------------------------------------------------|
 | OpenSuSE Java:Factory repositories | Repositories providing Java-related packages for OpenSuSE. Used for `E`arly `A`ccess releases mostly. |
 | JDK                                | Latest Java Development Kit `G`eneral `A`vailability version, regardless if it is `LTS` or not.       |                                               
+| maven                              | java build tool. Required to run scripts before the maven wrapper is downloaded                       |                                               
 | nvm + latest Node.js               | Node Version Manager (nvm) to manage multiple Node.js versions, with the latest Node.js installed.    |
 | Ruby                               | Ruby programming language with gem configuration.                                                     |
 
