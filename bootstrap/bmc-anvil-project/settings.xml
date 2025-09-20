@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0
-                              https://maven.apache.org/xsd/settings-1.0.0.xsd">
+<settings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 https://maven.apache.org/xsd/settings-1.0.0.xsd">
     <!-- Local repository location -->
     <localRepository>${user.home}/.m2/repository</localRepository>
 
@@ -11,7 +11,7 @@
             <id>github</id>
             <!-- Do not commit your use name-->
             <username>${USER_NAME}</username>
-            <!-- Do not commit your personal token. If you do, rever the commit and rotate your token-->
+            <!-- Do not commit your personal token. If you do, revert the commit and rotate your token-->
             <password>${USER_TOKEN}</password>
         </server>
     </servers>
@@ -28,6 +28,12 @@
                     <url>https://maven.pkg.github.com/bmc-anvil/*</url>
                 </repository>
             </repositories>
+            <pluginRepositories>
+                <pluginRepository>
+                    <id>github</id>
+                    <url>https://maven.pkg.github.com/bmc-anvil/*</url>
+                </pluginRepository>
+            </pluginRepositories>
         </profile>
     </profiles>
 
