@@ -9,7 +9,7 @@
         <!-- GitHub Package Registry server configuration -->
         <server>
             <id>github</id>
-            <!-- Do not commit your use name-->
+            <!-- Do not commit your username-->
             <username>${USER_NAME}</username>
             <!-- Do not commit your personal token. If you do, revert the commit and rotate your token-->
             <password>${USER_TOKEN}</password>
