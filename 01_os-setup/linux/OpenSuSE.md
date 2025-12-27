@@ -2,7 +2,7 @@
 
 This **README** provides a basic setup for a development workstation on OpenSuSE close to my own (Tumbleweed).
 
-It is intended to be a quick reference for myself mostly between OS installations, but it may be useful for others as well to check what I
+It is intended to be a quick reference for myself mostly between OS installations, but it may be useful for others as well as to check what I
 install by default.
 
 ## WARNING
@@ -12,11 +12,11 @@ install by default.
 > Stop here and do not run any script if you do not know what you are doing, and even if you know, this can harm your system.
 >
 > ---
-> This **WILL** change your system.
+> This **WILL** change your system and **MAY** render it unusable.
 
 ---
 
-## A few FAQs before starting
+## A few unsolicited FAQs before starting
 
 ### Why OpenSuSE?
 
@@ -29,6 +29,8 @@ Because I like it.
 ### What about other OSs?
 
 I like many of them too, just a little less.
+
+I use many of them too, just a lot less.
 
 It is ok to use any other *nix OS. The bulk, if not all, of the system codebase and companion tools are not tied to any specific OS.
 
@@ -58,37 +60,42 @@ Remember this is mostly for myself... a few tools might be lateral to specific p
 
 ## Base Software
 
-| Base Software                                | Description                                                                                |
-|----------------------------------------------|--------------------------------------------------------------------------------------------|
-| Base development tools (pattern devel_basis) | A set of basic development tools.                                                          |
-| gcc family                                   | The GNU Compiler Collection.                                                               |
-| make                                         | Build automation tool.                                                                     |
-| pkg-config                                   | A helper tool used when compiling applications and libraries.                              |
-| glib thread libraries                        | Libraries providing thread support for the GLib library. Required by IntelliJ in OpenSuSE. |
-| ---                                          | ---                                                                                        |
-| Neovim                                       | Vim-based text editor.                                                                     |
-| jq                                           | Command-line JSON processor.                                                               |
-| Git                                          | A distributed version control system.                                                      |
+| Base Software         | Description                                                                                                                         |
+|-----------------------|-------------------------------------------------------------------------------------------------------------------------------------|
+| pkg-config            | A helper tool used when compiling applications and libraries.                                                                       |
+| glib thread libraries | Libraries providing thread support for the GLib library. [Required by IntelliJ in OpenSuSE](../resources/opensuse_lib_missing.jpg). |
+| ---                   | ---                                                                                                                                 |
+| jq                    | Command-line JSON processor.                                                                                                        |
+| Git                   | A distributed version control system.                                                                                               |
 
-## Shell and Tools
+## Shell and Tools and Fonts
 
-| Shell and tools         | Description                                                                                             |
-|-------------------------|---------------------------------------------------------------------------------------------------------|
-| zsh and completions     | zsh is an extended Bourne shell with many improvements, including some features of Bash, ksh, and tcsh. |
-| Oh My zsh               | An open-source, community-driven framework for managing zsh configuration.                              |
-| Powerlevel10k           | A theme for zsh that provides a customizable and fast prompt.                                           |
-| zsh-syntax-highlighting | A plugin for zsh that provides syntax highlighting in the command line.                                 |
-| zsh-autosuggestions     | A plugin for zsh that provides suggestions as you type based on command history.                        |
+| Shell and tools and Fonts | Description                                                                                             |
+|---------------------------|---------------------------------------------------------------------------------------------------------|
+| zsh and completions       | zsh is an extended Bourne shell with many improvements, including some features of Bash, ksh, and tcsh. |
+| Oh My zsh                 | An open-source, community-driven framework for managing zsh configuration.                              |
+| Powerlevel10k             | A theme for zsh that provides a customizable and fast prompt.                                           |
+| zsh-syntax-highlighting   | A plugin for zsh that provides syntax highlighting in the command line.                                 |
+| zsh-autosuggestions       | A plugin for zsh that provides suggestions as you type based on command history.                        |
+| fira-code-fonts           | Some developer fonts                                                                                    |
+| jetbrains-mono-fonts      | More developer fonts by JetBrains                                                                       |
+| graphviz                  | a set of graph drawing tools (backend for mermaid / plantuml)                                           |
 
 ## Languages and Runtimes
 
-| Languages and Runtimes             | Description                                                                                           |
-|------------------------------------|-------------------------------------------------------------------------------------------------------|
-| OpenSuSE Java:Factory repositories | Repositories providing Java-related packages for OpenSuSE. Used for `E`arly `A`ccess releases mostly. |
-| JDK                                | Latest Java Development Kit `G`eneral `A`vailability version, regardless if it is `LTS` or not.       |                                               
-| maven                              | java build tool. Required to run scripts before the maven wrapper is downloaded                       |                                               
-| nvm + latest Node.js               | Node Version Manager (nvm) to manage multiple Node.js versions, with the latest Node.js installed.    |
-| Ruby                               | Ruby programming language with gem configuration.                                                     |
+| Languages and Runtimes                       | Description                                                                                        |
+|----------------------------------------------|----------------------------------------------------------------------------------------------------|
+| Base development tools (pattern devel_basis) | A set of basic development tools.                                                                  |
+| gcc family                                   | The GNU Compiler Collection.                                                                       |
+| make et als                                  | Build automation tool.                                                                             |
+| OpenSuSE Java:Factory repository             | Repository providing Java-related packages for OpenSuSE. Used for `Early Access` releases mostly.  |
+| JDK                                          | Latest Java Development Kit `General Availability` version, regardless if it is `LTS` or not.      |                                               
+| maven                                        | java build tool. Required to run scripts before the maven wrapper is downloaded (latest stable)    |                                               
+| nvm + latest Node.js                         | Node Version Manager (nvm) to manage multiple Node.js versions, with the latest Node.js installed. |
+| Ruby et als                                  | Ruby programming language with gem configuration and some software like jekyll.                    |
+| Rust (rustup)                                | Rust programming language via rustup tool.                                                         |
+| GoLang                                       | Go programming language.                                                                           |
+| C / C++                                      | c/c++ programming language.                                                                        |
 
 ## Containerization and Orchestration
 
@@ -101,15 +108,32 @@ Remember this is mostly for myself... a few tools might be lateral to specific p
 
 ## IDEs
 
-| Containerization / Orchestration | Description                                            |
-|----------------------------------|--------------------------------------------------------|
-| VS Code                          | Visual Studio Code, a source-code editor by Microsoft. |
-| JetBrains IDEs                   | Many IDEs by Jetbrains                                 |
+| IDEs / text editors | Description                                            |
+|---------------------|--------------------------------------------------------|
+| Neovim              | Vim-based text editor.                                 |
+| VS Code             | Visual Studio Code, a source-code editor by Microsoft. |
+| JetBrains IDEs      | Many IDEs by Jetbrains                                 |
+
+## Codecs, Multimedia, etc.
+
+| Codes / Multimedia | Description    |
+|--------------------|----------------|
+|                    | several codecs |
+
+## AI Related.
+
+| AI                                     | Description                                                                    |
+|----------------------------------------|--------------------------------------------------------------------------------|
+| Nvidia CUDA                            | Access to GPU compute                                                          |
+| Nvidia Toolkit                         | Nvidia toolkit to allow docker access to GPU (used for ollama with open-webui) |
+| Ollama                                 | local LLM                                                                      |
+| ---                                    | ---                                                                            |
+| Mistral / Llama / Gemma LLM and others | local capable models                                                           |
 
 ## Conventions:
 
 - Steps 0–2 can be run in your current shell.
-    - > **After zsh is installed (Section 2) all following scripts are provided for zsh.**
+    - > **After zsh is installed (Section 2), all following scripts are provided for zsh.**
 - Replace placeholders like <Your Name> and <your-email@example.com> as needed.
 - Some steps require restarting your shell session.
 
@@ -332,7 +356,9 @@ jq --version
 ```shell
 # Install NVM
 export NVM_DIR="$HOME/.nvm"
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | zsh
+
+#look for latest version in github
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | zsh
 
 # Load NVM for current zsh session
 [[ -s "$NVM_DIR/nvm.sh" ]] && . "$NVM_DIR/nvm.sh"
@@ -347,7 +373,7 @@ nvm use default
 # Verify
 node -v
 npm -v
-corepack enable
+corepack enable #unsure: check this
 ```
 
 Persist NVM in your ~/.zshrc:
@@ -562,4 +588,4 @@ echo "$ZSH_THEME"
 
 You can get the project itself from GitHub.
 
-Check the instructions on how to [run the project](https://github.com/SAP/cloud-s4-sdk-book/blob/master/run-project.md).   
+Check the instructions on how to [bootstrap the project](../../02_bootstrap/README.md).   

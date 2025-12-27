@@ -6,22 +6,28 @@ This repository contains all the scripts and instructions to set up a local dev 
 
 Folders:
 
-- [bootstrap](bootstrap):
+1. [os-setup](01_os-setup):
+    - Contains scripts and instructions to set up a local dev environment for specific OSs.
+    - This is "_Optional_" if you already have a dev environment set up.
+
+2. [bootstrap](02_bootstrap):
     - Contains scripts and instructions on how to clone and locally organize all repos in a comprehensive directory structure.
 
-- [os-setup](os-setup):
-    - Contains and scripts and instructions to set up a local dev environment for specific OSs.
-    - Optional if you already have a dev environment set up.
+3. [conventions](03_conventions):
+    - Contains documentation for the conventions and strategies used across the projects.
 
 ## Why
 
-These set-up scripts allow for consistent setup and development across all interested parties.
+These set-up scripts and instructions allow for consistent setup and development across all interested systems and parties.
 
 ## How
 
-If you already have a dev environment set up, you can skip the OS-specific set-up scripts.
+The advice is to follow in order the content of the folders. They are numbered in the order of execution / reading.
 
-With a dev environment set up, you can run the bootstrap scripts to clone and locally organize all repos.
+If you already have a dev environment set up, you can skip the OS-specific set-up scripts. I would still recommend to browser the contents as to check if
+everything I use, you also have it in some form or other.
+
+With a dev environment set up, you can run the bootstrap scripts to clone and locally organize all repos and check conventions and so on.
 
 ## What's Next
 
