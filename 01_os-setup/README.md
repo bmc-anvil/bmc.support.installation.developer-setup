@@ -20,11 +20,11 @@ people, or just impossible.
 As long as you know what you are doing regarding this topic, choose what you like the most.
 
 Fedora? Ubuntu? Arch? FreeBSD? Solaris? macOS? OpenIndiana? Haiku?
-<br>(maybe not) All fine...
+<br>it's (maybe not) all fine...
 
-vsCode? vi? vim? neovim? phantomvim? tmntvim? rabbitvim?
-youSawAYoutubeSensationThatIsAMegaProUsingVimSoYouAlsoWantVimAsItWillMakeYouAsProvim? emacs? intellij? eclipse? pen and paper?
-<br>(probably not) All fine...
+vsCode? vi? vim? neovim? phantomvim? tmntvim? rabbitvim? looneyvim? intellij? eclipse? pen and paper?
+youSawAYoutubeDevGodThatUsesVimSoYouAlsoWantToUseItAsItWillMakeYouAsProAsThatDevGodvim? emacs? 
+<br>it's (probably not) all fine...
 
 **_but...._**
 
@@ -40,4 +40,8 @@ support all possible combinations regarding installation and configuration detai
 It should be quite ok on macOS (BSDish after all), but running this on Windows may be a challenge or a lesser experience, even with / under Windows Subsystem
 for Linux (WSL).
 
-What the hell, not everybody uses `OpenSuSE`.
+>So probably this may be the exception to the rule of consistency as long as each one knows their OS and tools.
+>
+>What the hell, not everybody uses `OpenSuSE` and OSs and tools are "non-shared" and "hyperlocal" to each dev.
+> 
+>Bear in mind that I can only support what I know.
