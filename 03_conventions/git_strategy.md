@@ -257,7 +257,7 @@ Libraries, plugins, etc. are not like microservices as they are most likely self
 
 This previous scenario fits almost ok for a library.
 
-The tweak he is that `main` tracks the new library and an `old_version_branch` tracks the legacy one until full adoption.
+The tweak here is that `main` tracks the new library and an `old_version_branch` tracks the legacy one until full adoption.
 
 If there is a requirement for the old version like a deprecated dependency update or vulnerability while the new lib is not yet ready or has not been completely
 adopted, said updated can be applied to the `old_version_branch` branch.
