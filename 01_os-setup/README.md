@@ -23,8 +23,9 @@ Fedora? Ubuntu? Arch? FreeBSD? Solaris? macOS? OpenIndiana? Haiku?
 <br>it's (maybe not) all fine...
 
 vsCode? vi? vim? neovim? phantomvim? tmntvim? rabbitvim? looneyvim? intellij? eclipse? pen and paper?
-youSawAYoutubeDevGodThatUsesVimSoYouAlsoWantToUseItAsItWillMakeYouAsProAsThatDevGodvim? emacs? 
+youSawAYoutubeDevGodThatUsesVimSoYouAlsoWantToUseItAsItWillMakeYouAsProAsThatDevGodvim? emacs?
 <br>it's (probably not) all fine...
+<br>learning vim, at least the basics, is (very) important though...
 
 **_but...._**
 
@@ -40,8 +41,8 @@ support all possible combinations regarding installation and configuration detai
 It should be quite ok on macOS (BSDish after all), but running this on Windows may be a challenge or a lesser experience, even with / under Windows Subsystem
 for Linux (WSL).
 
->So probably this may be the exception to the rule of consistency as long as each one knows their OS and tools.
+> So probably this may be the exception to the rule of consistency as long as each one knows their OS and tools.
 >
->What the hell, not everybody uses `OpenSuSE` and OSs and tools are "non-shared" and "hyperlocal" to each dev.
-> 
->Bear in mind that I can only support what I know.
+> What the hell, not everybody uses `OpenSuSE` and OSs and tools are "non-shared" and "hyperlocal" to each dev.
+>
+> Bear in mind that I can only support what I know; also, some AI is your friend here... 
