@@ -1,7 +1,6 @@
 # Git Branching Strategy
 
-So many ways are the right way to do Git branching that it seems that whatever you choose, you choose wrong, or at least one right among the other "n" right
-choices.
+So many ways are the right way to do Git branching that it seems that whatever you choose, you choose wrong.
 
 Whatever choice... it can always be put in perspective and end up being the "wrong" choice for some.
 
