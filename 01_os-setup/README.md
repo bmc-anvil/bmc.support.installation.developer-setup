@@ -7,8 +7,7 @@ I know... I know...
 I've stated somewhere else that supporting `N` variations of a `Y` thing is the worst for maintainability, and this is one exception or a choice to break that
 approach.
 
-As we may use different OSs and setups, I may provide in time different configuration guidelines for different platforms other than my own setup and
-platform.
+As we may use different OSs and setups, I may provide in time different configuration guidelines for different platforms other than my own setup and platform.
 
 If I create them, I will not maintain them with the same rigor as my own platform, and my current platform will inevitably change over time.
 
@@ -43,6 +42,8 @@ for Linux (WSL).
 
 > So probably this may be the exception to the rule of consistency as long as each one knows their OS and tools.
 >
-> What the hell, not everybody uses `OpenSuSE` and OSs and tools are "non-shared" and "hyperlocal" to each dev.
+> What the hell, not everybody uses `OpenSuSE` or `Manjaro` or even `Linux` at all, and OSs and tools are "non-shared" and "hyperlocal" to each dev.
 >
-> Bear in mind that I can only support what I know; also, some AI is your friend here... 
+> Bear in mind that I can only support what I know.
+>
+> Also, some AI is your friend here... also there is the Friendly manual, so at some point we all need to `RTFM`.

@@ -1,20 +1,12 @@
-# Developer Machine Setup on OpenSuSE
+# Developer Machine Setup on OpenSuSE Tumbleweed
 
-This **README** provides a basic setup for a development workstation on OpenSuSE close to my own (Tumbleweed).
+# OS Site:
 
-It is intended to be a quick reference for myself mostly between OS installations, but it may be useful for others as well as to check what I
-install by default.
+[OpenSuSE](https://www.opensuse.org/)
 
-## WARNING
+# 1st Step:
 
-> What follows heavily modifies your system in a way that may break other software, current installation, or even the entire OS.
->
-> Stop here and do not run any script if you do not know what you are doing, and even if you know, this can harm your system.
->
-> ---
-> This **WILL** change your system and **MAY** render it unusable.
-
----
+Check the general OS [README.md](../README.md) and the [LinuxCommon.md](LinuxCommon.md)
 
 ## A few unsolicited FAQs before starting
 
@@ -26,158 +18,80 @@ But mostly...
 
 Because I like it.
 
-### What about other OSs?
-
-I like many of them too, just a little less.
-
-I use many of them too, just a lot less.
-
-It is ok to use any other *nix OS. The bulk, if not all, of the system codebase and companion tools are not tied to any specific OS.
-
-### OpenSuSE comes with bash as default, why zsh?
-
-I got used to it when running Manjaro and it stuck.
-
-But mostly...
-
-Because I like it.
-
-### What about bash?
-
-I like it too.
-
-### Will this change in time?
-
-Yes, maybe. Definitely! Probably... not... But yes, sure it will! Kinda not thou...
-
 ---
 
 # Installation
 
-Here is an overview of the software that will be installed:
+# OpenSuSE Specific Software:
 
-Remember this is mostly for myself... a few tools might be lateral to specific project's needs.
-
-## Base Software
-
-| Base Software         | Description                                                                                                                         |
-|-----------------------|-------------------------------------------------------------------------------------------------------------------------------------|
-| pkg-config            | A helper tool used when compiling applications and libraries.                                                                       |
-| glib thread libraries | Libraries providing thread support for the GLib library. [Required by IntelliJ in OpenSuSE](../resources/opensuse_lib_missing.jpg). |
-| ---                   | ---                                                                                                                                 |
-| jq                    | Command-line JSON processor.                                                                                                        |
-| Git                   | A distributed version control system.                                                                                               |
-
-## Shell and Tools and Fonts
-
-| Shell and tools and Fonts | Description                                                                                             |
-|---------------------------|---------------------------------------------------------------------------------------------------------|
-| zsh and completions       | zsh is an extended Bourne shell with many improvements, including some features of Bash, ksh, and tcsh. |
-| Oh My zsh                 | An open-source, community-driven framework for managing zsh configuration.                              |
-| Powerlevel10k             | A theme for zsh that provides a customizable and fast prompt.                                           |
-| zsh-syntax-highlighting   | A plugin for zsh that provides syntax highlighting in the command line.                                 |
-| zsh-autosuggestions       | A plugin for zsh that provides suggestions as you type based on command history.                        |
-| fira-code-fonts           | Some developer fonts                                                                                    |
-| jetbrains-mono-fonts      | More developer fonts by JetBrains                                                                       |
-| graphviz                  | a set of graph drawing tools (backend for mermaid / plantuml)                                           |
-
-## Languages and Runtimes
-
-| Languages and Runtimes                       | Description                                                                                        |
-|----------------------------------------------|----------------------------------------------------------------------------------------------------|
-| Base development tools (pattern devel_basis) | A set of basic development tools.                                                                  |
-| gcc family                                   | The GNU Compiler Collection.                                                                       |
-| make et als                                  | Build automation tool.                                                                             |
-| OpenSuSE Java:Factory repository             | Repository providing Java-related packages for OpenSuSE. Used for `Early Access` releases mostly.  |
-| JDK                                          | Latest Java Development Kit `General Availability` version, regardless if it is `LTS` or not.      |                                               
-| maven                                        | java build tool. Required to run scripts before the maven wrapper is downloaded (latest stable)    |                                               
-| nvm + latest Node.js                         | Node Version Manager (nvm) to manage multiple Node.js versions, with the latest Node.js installed. |
-| Ruby et als                                  | Ruby programming language with gem configuration and some software like jekyll.                    |
-| Rust (rustup)                                | Rust programming language via rustup tool.                                                         |
-| GoLang                                       | Go programming language.                                                                           |
-| C / C++                                      | c/c++ programming language.                                                                        |
-
-## Containerization and Orchestration
-
-| Containerization / Orchestration | Description                                                                  |
-|----------------------------------|------------------------------------------------------------------------------|
-| Docker                           | A platform for developing, shipping, and running applications in containers. |
-| Docker Compose                   | A tool for defining and running multi-container Docker applications.         |
-| kubectl                          | A command-line tool for interacting with Kubernetes clusters.                |
-| Minikube                         | A tool that runs a single-node Kubernetes cluster locally.                   |
-
-## IDEs
-
-| IDEs / text editors | Description                                            |
-|---------------------|--------------------------------------------------------|
-| Neovim              | Vim-based text editor.                                 |
-| VS Code             | Visual Studio Code, a source-code editor by Microsoft. |
-| JetBrains IDEs      | Many IDEs by Jetbrains                                 |
-
-## Codecs, Multimedia, etc.
-
-| Codes / Multimedia | Description    |
-|--------------------|----------------|
-|                    | several codecs |
-
-## AI Related.
-
-| AI                                     | Description                                                                    |
-|----------------------------------------|--------------------------------------------------------------------------------|
-| Nvidia CUDA                            | Access to GPU compute                                                          |
-| Nvidia Toolkit                         | Nvidia toolkit to allow docker access to GPU (used for ollama with open-webui) |
-| Ollama                                 | local LLM                                                                      |
-| ---                                    | ---                                                                            |
-| Mistral / Llama / Gemma LLM and others | local capable models                                                           |
+| OpenSuSe Specific Software | Description                                                                                                                         |
+|----------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
+| zsh                        | zsh is an extended Bourne shell with many improvements, including some features of Bash, ksh, and tcsh.                             |
+| glib thread libraries      | Libraries providing thread support for the GLib library. [Required by IntelliJ in OpenSuSE](../resources/opensuse_lib_missing.jpg). |
 
 ## Conventions:
 
-- Steps 0–2 can be run in your current shell.
+- Steps 0–2 can be run in bash shell.
     - > **After zsh is installed (Section 2), all following scripts are provided for zsh.**
 - Replace placeholders like <Your Name> and <your-email@example.com> as needed.
 - Some steps require restarting your shell session.
 
 ## 0. System update
 
+Docs: [add package repositories](https://en.opensuse.org/SDB:Add_package_repositories)
+
 ```shell script
-  # refresh repositories
-sudo zypper refresh
-sudo zypper update -y
+  # add repositories: may need to accept gpg keys
+sudo zypper ar -f http://ftp.gwdg.de/pub/linux/misc/packman/suse/openSUSE_Tumbleweed/ packman                 # packman, a classic!
+sudo zypper ar -f https://download.opensuse.org/repositories/Java:/Factory/openSUSE_Tumbleweed/ java_factory  # java_factory. Latest versions usually not on the regular repositories
+sudo zypper ar -f https://brave-browser-rpm-release.s3.brave.com/x86_64 brave_browser                         # brave browser. 
+sudo zypper ar https://nvidia.github.io/libnvidia-container/stable/rpm/nvidia-container-toolkit.repo          # NVIDIA Container Toolkit
+
+  # update
+sudo zypper dup --details
+```
+
+It is possible that a reboot will be necessary depending on the nature of the updates (ie, a kernel update).
+
+In doubt, reboot.
+
+---
+
+## 1. Installation
+
+```shell
+# Install some base development patterns
+sudo zypper install -t pattern devel_basis devel_C_C++
+```
+
+```shell
+# Remove vi as we will install neo vim in the next step
+ sudo zypper rm vi
+
+# Install as much of the software now and we configure it in later steps
+sudo zypper install bash-completion brave-browser btop ca-certificates curl docker docker-compose fastfetch gcc git \
+            google-noto-fonts google-noto-sans-cjk-fonts graphviz jq libgthread-2_0-0 make neovim openssl partitionmanager \
+            pkgconf ruby ruby-devel tar unzip wget xz zsh zsh-completions zsh-sh
+       
+# Installing some software from flatpak              
+flatpak install com.vscodium.codium 
 ```
 
 ---
 
-## 1. Base Development Tools (install first)
+## 2. Configuration
 
-Install the base development pattern and essential build/runtime tools.
+All these configs are for your own user, if you switch to SuperUser with `sudo su`, a few things, like the shell or some configuration, will not apply as
+`root`.
 
-```shell
-# Install the base development pattern
-sudo zypper install -t pattern devel_basis
-```
+## 2.1 zsh and Completions
 
 ```shell
-# Ensure common build/runtime utilities are present
-sudo zypper install gcc gcc-c++ make pkgconf pkgconf-pkg-config curl wget ca-certificates tar unzip xz openssl
-```
-
----
-
-## 2. zsh and Completions (install second)
-
-Install zsh and completions and set it as the default shell.
-
-```shell script
-# Install zsh and bash completions
-sudo zypper install  zsh zsh-completions bash-completion
-```
-
-```shell
-# set zsh as the default shell (log out/in afterwards)
+# set zsh as the default shell (log out/ log in after this step)
 chsh -s /usr/bin/zsh
 ```
 
-From this point onward, use zsh for the remaining steps.
+From this point onward, use `zsh` for the remaining steps.
 
 ---
 
@@ -285,6 +199,10 @@ git config --global user.email "<your-email@example.com>"
 git config --global init.defaultBranch main
 git config --global pull.rebase false
 git config --global branch.autosetuprebase never
+
+# test setup
+# the above settings should be reflected in the config file
+cat ~/.gitconfig
 ```
 
 ---
@@ -294,33 +212,12 @@ git config --global branch.autosetuprebase never
 Add the Java:Factory repository and install JDK from OpenSuSE packages.
 
 ```shell
-# Detect OpenSuSE variant to add the proper Java:Factory repository
 # Array of Java versions to install
-java_versions=("24" "25" "26")
-
-# Switch to the Java:Factory repository
-if [[ "$ID" == "OpenSuSE-tumbleweed" ]]; then
-  repo_url="https://download.opensuse.org/repositories/Java:/Factory/OpenSuSE_Tumbleweed/"
-else
-  repo_url="https://download.opensuse.org/repositories/Java:/Factory/OpenSuSE_Leap_${VERSION_ID}/"
-fi
-
-# Add the repository
-sudo zypper ar -f "$repo_url" Java_Factory
-
-# Refresh the repository
-sudo zypper refresh
+java_versions=("25" "26" "27")
 
 # Install each Java version
 for version in "${java_versions[@]}"; do
   sudo zypper install "java-${version}-openjdk" "java-${version}-openjdk-devel" "java-${version}-openjdk-javadoc" "java-${version}-openjdk-src"
-done
-
-# Verify installations
-for version in "${java_versions[@]}"; do
-  echo "Verifying Java ${version} installation:"
-  java-${version} -version
-  javac-${version} -version
 done
 ```
 
@@ -581,8 +478,8 @@ echo "$ZSH_THEME"
 
 - After adding your user to the docker group, log out and back in, or run `newgrp docker` to apply the new group for the current session.
 - If NVM isn’t available, ensure its init lines are in your ~/.zshrc file and source it or restart the shell.
-- If Powerlevel10k icons look off, make sure you installed a Nerd Font (e.g., MesloLGS NF) and select it in your terminal profile. Once that's done,
-  rerun the p10k configuration wizard.
+- If Powerlevel10k icons look off, make sure you installed a Nerd Font (e.g., MesloLGS NF) and select it in your terminal profile. Once that's done, rerun the
+  p10k configuration wizard.
 
 ## What's Next:
 
